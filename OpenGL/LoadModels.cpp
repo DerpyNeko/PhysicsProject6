@@ -8,13 +8,122 @@ void LoadModelTypes(cVAOMeshManager* pTheVAOMeshManager, GLuint shaderProgramID)
 	sphereInfo.meshFileName = "Sphere_n_uv.ply";
 	pTheVAOMeshManager->LoadModelIntoVAO(sphereInfo, shaderProgramID);
 
-	sModelDrawInfo floorInfo;
-	floorInfo.meshFileName = "Floor.ply";
-	pTheVAOMeshManager->LoadModelIntoVAO(floorInfo, shaderProgramID);
-
 	sModelDrawInfo sphereInvertedNormalsInfo;
 	sphereInvertedNormalsInfo.meshFileName = "Sphere_n_uv_INVERTED_NORMALS.ply";
 	pTheVAOMeshManager->LoadModelIntoVAO(sphereInvertedNormalsInfo, shaderProgramID);
+
+	// cubes
+	{
+	sModelDrawInfo cube1Info;
+	cube1Info.meshFileName = "Cube_1x1.ply";
+	pTheVAOMeshManager->LoadModelIntoVAO(cube1Info, shaderProgramID);
+
+	sModelDrawInfo cube2Info;
+	cube2Info.meshFileName = "Cube_1x2.ply";
+	pTheVAOMeshManager->LoadModelIntoVAO(cube2Info, shaderProgramID);
+
+	sModelDrawInfo cube3Info;
+	cube3Info.meshFileName = "Cube_1x5.ply";
+	pTheVAOMeshManager->LoadModelIntoVAO(cube3Info, shaderProgramID);
+
+	sModelDrawInfo cube4Info;
+	cube4Info.meshFileName = "Cube_1x7.ply";
+	pTheVAOMeshManager->LoadModelIntoVAO(cube4Info, shaderProgramID);
+
+	sModelDrawInfo cube5Info;
+	cube5Info.meshFileName = "Cube_1x27.ply";
+	pTheVAOMeshManager->LoadModelIntoVAO(cube5Info, shaderProgramID);
+
+	sModelDrawInfo cube6Info;
+	cube6Info.meshFileName = "Cube_1x35.ply";
+	pTheVAOMeshManager->LoadModelIntoVAO(cube6Info, shaderProgramID);
+
+	sModelDrawInfo cube7Info;
+	cube7Info.meshFileName = "Cube_2x2.ply";
+	pTheVAOMeshManager->LoadModelIntoVAO(cube7Info, shaderProgramID);
+
+	sModelDrawInfo cube8Info;
+	cube8Info.meshFileName = "Cube_2x7.ply";
+	pTheVAOMeshManager->LoadModelIntoVAO(cube8Info, shaderProgramID);
+
+	sModelDrawInfo cube9Info;
+	cube9Info.meshFileName = "Cube_2x28.ply";
+	pTheVAOMeshManager->LoadModelIntoVAO(cube9Info, shaderProgramID);
+
+	sModelDrawInfo cube10Info;
+	cube10Info.meshFileName = "Cube_27x36.ply";
+	pTheVAOMeshManager->LoadModelIntoVAO(cube10Info, shaderProgramID);
+	}
+
+	// hemispheres
+	{
+	sModelDrawInfo hemiSphere1Info;
+	hemiSphere1Info.meshFileName = "HemiSphere_1x1.ply";
+	pTheVAOMeshManager->LoadModelIntoVAO(hemiSphere1Info, shaderProgramID);
+
+	sModelDrawInfo hemiSphere2Info;
+	hemiSphere2Info.meshFileName = "HemiSphere_1x2.ply";
+	pTheVAOMeshManager->LoadModelIntoVAO(hemiSphere2Info, shaderProgramID);
+	}
+
+	// triangles
+	{
+	sModelDrawInfo triangle1Info;
+	triangle1Info.meshFileName = "Triangle_1x1.ply";
+	pTheVAOMeshManager->LoadModelIntoVAO(triangle1Info, shaderProgramID);
+
+	sModelDrawInfo triangle2Info;
+	triangle2Info.meshFileName = "Triangle_1x2.ply";
+	pTheVAOMeshManager->LoadModelIntoVAO(triangle2Info, shaderProgramID);
+
+	sModelDrawInfo triangle3Info;
+	triangle3Info.meshFileName = "Triangle_1x4.ply";
+	pTheVAOMeshManager->LoadModelIntoVAO(triangle3Info, shaderProgramID);
+
+	sModelDrawInfo triangle4Info;
+	triangle4Info.meshFileName = "Triangle_1x6.ply";
+	pTheVAOMeshManager->LoadModelIntoVAO(triangle4Info, shaderProgramID);
+
+	sModelDrawInfo triangle5Info;
+	triangle5Info.meshFileName = "Triangle_2x2.ply";
+	pTheVAOMeshManager->LoadModelIntoVAO(triangle5Info, shaderProgramID);
+
+	sModelDrawInfo triangle6Info;
+	triangle6Info.meshFileName = "Triangle_2x3.ply";
+	pTheVAOMeshManager->LoadModelIntoVAO(triangle6Info, shaderProgramID);
+
+	sModelDrawInfo triangle7Info;
+	triangle7Info.meshFileName = "Triangle_2x4.ply";
+	pTheVAOMeshManager->LoadModelIntoVAO(triangle7Info, shaderProgramID);
+
+	sModelDrawInfo triangle8Info;
+	triangle8Info.meshFileName = "Triangle_2x6.ply";
+	pTheVAOMeshManager->LoadModelIntoVAO(triangle8Info, shaderProgramID);
+
+	sModelDrawInfo triangle9Info;
+	triangle9Info.meshFileName = "Triangle_2x8.ply";
+	pTheVAOMeshManager->LoadModelIntoVAO(triangle9Info, shaderProgramID);
+
+	sModelDrawInfo triangle10Info;
+	triangle10Info.meshFileName = "Triangle_2x13.ply";
+	pTheVAOMeshManager->LoadModelIntoVAO(triangle10Info, shaderProgramID);
+
+	sModelDrawInfo triangle11Info;
+	triangle11Info.meshFileName = "Triangle_4x4.ply";
+	pTheVAOMeshManager->LoadModelIntoVAO(triangle11Info, shaderProgramID);
+
+	sModelDrawInfo triangle12Info;
+	triangle12Info.meshFileName = "Triangle_5x5.ply";
+	pTheVAOMeshManager->LoadModelIntoVAO(triangle12Info, shaderProgramID);
+
+	}
+
+	// bumper
+	{
+		sModelDrawInfo bumperInfo;
+		bumperInfo.meshFileName = "cylinder.ply";
+		pTheVAOMeshManager->LoadModelIntoVAO(bumperInfo, shaderProgramID);
+	}
 
 	// At this point, mesh in in GPU
 	std::cout << "Mesh was loaded OK" << std::endl;

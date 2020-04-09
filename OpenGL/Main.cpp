@@ -146,8 +146,8 @@ int main(void)
 
 	// Camera creation
 	::g_pCamera = new cCamera();
-	g_pCamera->eye = { -890.0f, 115.0f, -810.0f };
-	g_pCamera->setCameraAt(glm::vec3(0.785847f, 0.00212923f, 0.61842f));
+	g_pCamera->eye = { 10.0f, 50.0f, -20.0f };
+	//g_pCamera->setCameraAt(glm::vec3(13.5f, 0.0f, 18.0f));
 
 	LoadModelTypes(::g_pVAOMeshManager, program);
 	//LoadModelsIntoScene(::g_vec_pObjectsToDraw);
@@ -236,20 +236,20 @@ int main(void)
 			glUniform4f(light->atten_UniLoc, light->atten.x,
 				light->atten.y, light->atten.z, light->atten.w);
 
-			cMeshObject* pDebugSphere = findObjectByFriendlyName("DebugSphere");
-			pDebugSphere->bIsVisible = true;
-			pDebugSphere->bDontLight = true;
+			//cMeshObject* pDebugSphere = findObjectByFriendlyName("DebugSphere");
+			//pDebugSphere->bIsVisible = true;
+			//pDebugSphere->bDontLight = true;
 
-			glm::vec4 oldDiffuse = pDebugSphere->materialDiffuse;
-			glm::vec3 oldScale = pDebugSphere->nonUniformScale;
+			//glm::vec4 oldDiffuse = pDebugSphere->materialDiffuse;
+			//glm::vec3 oldScale = pDebugSphere->nonUniformScale;
 
-			pDebugSphere->setDiffuseColour(glm::vec3(255.0f / 255.0f, 105.0f / 255.0f, 180.0f / 255.0f));
-			pDebugSphere->bUseVertexColour = false;
-			pDebugSphere->rigidBody->GetPosition() = glm::vec3(light->position);
-			glm::mat4 matBall(1.0f);
+			//pDebugSphere->setDiffuseColour(glm::vec3(255.0f / 255.0f, 105.0f / 255.0f, 180.0f / 255.0f));
+			//pDebugSphere->bUseVertexColour = false;
+			//pDebugSphere->rigidBody->GetPosition() = glm::vec3(light->position);
+			//glm::mat4 matBall(1.0f);
 
-			pDebugSphere->materialDiffuse = oldDiffuse;
-			DrawObject(pDebugSphere, matBall, program);
+			//pDebugSphere->materialDiffuse = oldDiffuse;
+			//DrawObject(pDebugSphere, matBall, program);
 		}//for ( sLight* light : g_Lights
 
 		{
@@ -304,8 +304,8 @@ int main(void)
 			DrawObject(pCurrentMesh, matModel, program);
 		}
 
-		glm::vec3 position = g_MeshObjects.at(gLookAtModel)->rigidBody->GetPosition() - g_pCamera->eye;
-		g_pCamera->setCameraAt(glm::normalize(position));
+		//glm::vec3 position = g_MeshObjects.at(gLookAtModel)->rigidBody->GetPosition() - g_pCamera->eye;
+		//g_pCamera->setCameraAt(glm::normalize(position));
 
 		// High res timer (likely in ms or ns)
 		double currentTime = glfwGetTime();

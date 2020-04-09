@@ -90,7 +90,6 @@ namespace nLoad
 				else
 				{
 					std::cout << "Orientation not loaded" << std::endl;
-
 				}
 
 				if (jsonSuperDef["Velocity"].isArray())
@@ -126,6 +125,7 @@ namespace nLoad
 									jsonSuperDef["Constant"].asFloat());
 
 								object->rigidBody = gPhysicsFactory->CreateRigidBody(def, plane);
+								object->bDontLight = true;
 							}
 						}
 					}
