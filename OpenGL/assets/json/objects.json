@@ -1,0 +1,148 @@
+{
+  "ObjectDefs": [
+    {
+      "Mesh": "Sphere_n_uv_INVERTED_NORMALS.ply",
+      "Name": "SkyBoxObject",
+      "Color": [ 0.0, 1.0, 0.0 ],
+      "Mass": 0.0,
+      "Position": [ 0.0, 0.0, 0.0 ],
+      "Velocity": [ 0.0, 0.0, 0.0 ],
+      "Orientation": [ 0.0, 0.0, 0.0 ],
+      "Shape": "Sphere",
+      "Radius": 5000
+    },
+    {
+      "Mesh": "Floor.ply",
+      "Name": "Floor",
+      "Color": [ 0.0, 1.0, 0.0 ],
+      "Mass": 0.0,
+      "Position": [ 0.0, 0.0, 0.0 ],
+      "Velocity": [ 0.0, 0.0, 0.0 ],
+      "Orientation": [ 0.0, 0.0, 0.0 ],
+      "Shape": "Plane",
+      "Constant": 0,
+      "Normal": [ 0.0, 1.0, 0.0 ]
+    },
+    {
+      "Mesh": "Sphere_n_uv.ply",
+      "Name": "Ball",
+      "Color": [ 0.0, 1.0, 1.0 ],
+      "Mass": 1.0,
+      "Position": [ 0.0, 200.0, 0.0 ],
+      "Velocity": [ 0.0, -1.0, 0.0 ],
+      "Orientation": [ 0.0, 0.0, 0.0 ],
+      "Shape": "Sphere",
+      "Radius": 10.0
+    },
+    {
+      "Mesh": "Sphere_n_uv.ply",
+      "Name": "Ball",
+      "Color": [ 1.0, 1.0, 1.0 ],
+      "Mass": 1.0,
+      "Position": [ 50.0, 200.0, 0.0 ],
+      "Velocity": [ 0.0, -1.0, 0.0 ],
+      "Orientation": [ 0.0, 0.0, 0.0 ],
+      "Shape": "Sphere",
+      "Radius": 10.0
+    },
+    {
+      "Mesh": "Sphere_n_uv.ply",
+      "Name": "Ball",
+      "Color": [ 0.0, 0.0, 1.0 ],
+      "Mass": 1.5,
+      "Position": [ 0.0, 100.0, 100.0 ],
+      "Velocity": [ 1.0, -1.0, 0.0 ],
+      "Orientation": [ 0.0, 0.0, 0.0 ],
+      "Shape": "Sphere",
+      "Radius": 15.0
+    },
+    {
+      "Mesh": "Sphere_n_uv.ply",
+      "Name": "Ball",
+      "Color": [ 0.0, 1.0, 1.0 ],
+      "Mass": 0.5,
+      "Position": [ 0.0, 20.0, 90.0 ],
+      "Velocity": [ 0.0, -1.0, 1.0 ],
+      "Orientation": [ 0.0, 0.0, 0.0 ],
+      "Shape": "Sphere",
+      "Radius": 5.0
+    },
+    {
+      "Mesh": "Sphere_n_uv.ply",
+      "Name": "Ball",
+      "Color": [ 0.0, 1.0, 1.0 ],
+      "Mass": 2.0,
+      "Position": [ 50.0, 20.0, 0.0 ],
+      "Velocity": [ 3.0, -1.0, 0.0 ],
+      "Orientation": [ 0.0, 0.0, 0.0 ],
+      "Shape": "Sphere",
+      "Radius": 20.0
+    },
+    {
+      "Mesh": "Sphere_n_uv.ply",
+      "Name": "Ball",
+      "Color": [ 0.0, 1.0, 1.0 ],
+      "Mass": 1.0,
+      "Position": [ 0.0, 200.0, 60.0 ],
+      "Velocity": [ 0.0, -1.0, 0.0 ],
+      "Orientation": [ 0.0, 0.0, 0.0 ],
+      "Shape": "Sphere",
+      "Radius": 10.0
+    },
+    {
+      "Mesh": "Sphere_n_uv.ply",
+      "Name": "Ball",
+      "Color": [ 0.0, 1.0, 1.0 ],
+      "Mass": 1.0,
+      "Position": [ 50.0, 20.0, 0.0 ],
+      "Velocity": [ 0.0, -1.0, 0.0 ],
+      "Orientation": [ 0.0, 0.0, 0.0 ],
+      "Shape": "Sphere",
+      "Radius": 10.0
+    },
+    {
+      "Mesh": "Sphere_n_uv.ply",
+      "Name": "Ball",
+      "Color": [ 1.0, 0.0, 0.0 ],
+      "Mass": 1.0,
+      "Position": [ 80.0, 200.0, 0.0 ],
+      "Velocity": [ 1.0, -1.0, 0.0 ],
+      "Orientation": [ 0.0, 0.0, 0.0 ],
+      "Shape": "Sphere",
+      "Radius": 10.0
+    },
+    {
+      "Mesh": "Sphere_n_uv.ply",
+      "Name": "Ball",
+      "Color": [ 1.0, 1.0, 0.0 ],
+      "Mass": 1.0,
+      "Position": [ 20.0, 20.0, 20.0 ],
+      "Velocity": [ 1.0, 1.0, 0.0 ],
+      "Orientation": [ 0.0, 0.0, 0.0 ],
+      "Shape": "Sphere",
+      "Radius": 10.0
+    },
+    {
+      "Mesh": "Sphere_n_uv.ply",
+      "Name": "Ball",
+      "Color": [ 0.0, 0.0, 1.0 ],
+      "Mass": 1.0,
+      "Position": [ 5.0, 20.0, 0.0 ],
+      "Velocity": [ 0.0, -1.0, 0.0 ],
+      "Orientation": [ 0.0, 0.0, 0.0 ],
+      "Shape": "Sphere",
+      "Radius": 10.0
+    },
+    {
+      "Mesh": "Sphere_n_uv.ply",
+      "Name": "DebugSphere",
+      "Color": [ 0.0, 1.0, 0.0 ],
+      "Mass": 1.0,
+      "Position": [ 0.0, 0.0, 0.0 ],
+      "Velocity": [ 0.0, 0.0, 0.0 ],
+      "Orientation": [ 0.0, 0.0, 0.0 ],
+      "Shape": "Sphere",
+      "Radius": 0.1
+    }
+  ]
+}
