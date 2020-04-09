@@ -78,7 +78,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SourcePath)include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SourcePath)include;$(SolutionDir)Math;$(SolutionDir)Interfaces;$(IncludePath)</IncludePath>
     <LibraryPath>$(SourcePath)lib/x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

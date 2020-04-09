@@ -61,7 +61,7 @@ int main(void)
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 
-	window = glfwCreateWindow(1280, 720, "Physics Project 2", NULL, NULL);
+	window = glfwCreateWindow(900, 920, "Physics Project 6", NULL, NULL);
 
 	if (!window)
 	{
@@ -146,8 +146,8 @@ int main(void)
 
 	// Camera creation
 	::g_pCamera = new cCamera();
-	g_pCamera->eye = { 10.0f, 50.0f, -20.0f };
-	//g_pCamera->setCameraAt(glm::vec3(13.5f, 0.0f, 18.0f));
+	g_pCamera->eye = { 12.0f, 60.0f, 0.0f };
+	g_pCamera->setCameraAt(glm::vec3(0.0f, -0.8f, 0.221f));
 
 	LoadModelTypes(::g_pVAOMeshManager, program);
 	//LoadModelsIntoScene(::g_vec_pObjectsToDraw);
