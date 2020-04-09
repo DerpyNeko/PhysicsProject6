@@ -125,6 +125,13 @@ void LoadModelTypes(cVAOMeshManager* pTheVAOMeshManager, GLuint shaderProgramID)
 		pTheVAOMeshManager->LoadModelIntoVAO(bumperInfo, shaderProgramID);
 	}
 
+	// paddles
+	{
+		sModelDrawInfo paddleInfo;
+		paddleInfo.meshFileName = "paddle.ply";
+		pTheVAOMeshManager->LoadModelIntoVAO(paddleInfo, shaderProgramID);
+	}
+
 	// At this point, mesh in in GPU
 	std::cout << "Mesh was loaded OK" << std::endl;
 
