@@ -53,6 +53,10 @@ void LoadModelTypes(cVAOMeshManager* pTheVAOMeshManager, GLuint shaderProgramID)
 	sModelDrawInfo cube10Info;
 	cube10Info.meshFileName = "Cube_27x36.ply";
 	pTheVAOMeshManager->LoadModelIntoVAO(cube10Info, shaderProgramID);
+
+	sModelDrawInfo cube11Info;
+	cube11Info.meshFileName = "Cube_3x5.ply";
+	pTheVAOMeshManager->LoadModelIntoVAO(cube11Info, shaderProgramID);
 	}
 
 	// hemispheres
@@ -132,6 +136,20 @@ void LoadModelTypes(cVAOMeshManager* pTheVAOMeshManager, GLuint shaderProgramID)
 		pTheVAOMeshManager->LoadModelIntoVAO(paddleInfo, shaderProgramID);
 	}
 
+	// other
+	{
+		sModelDrawInfo tetraInfo;
+		tetraInfo.meshFileName = "tetra.ply";
+		pTheVAOMeshManager->LoadModelIntoVAO(tetraInfo, shaderProgramID);
+
+		sModelDrawInfo spinInfo;
+		spinInfo.meshFileName = "spin.ply";
+		pTheVAOMeshManager->LoadModelIntoVAO(spinInfo, shaderProgramID);
+
+		sModelDrawInfo flipInfo;
+		flipInfo.meshFileName = "flip.ply";
+		pTheVAOMeshManager->LoadModelIntoVAO(flipInfo, shaderProgramID);
+	}
 	// At this point, mesh in in GPU
 	std::cout << "Mesh was loaded OK" << std::endl;
 
