@@ -726,6 +726,18 @@
     <ClInclude Include="Physics\Bullet\nConvert.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Physics\Bullet\cBulletHingeConstraint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\Interfaces\iBulletComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\Bullet\cBullet6DoFConstraint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\Bullet\cBulletSliderConstraint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Physics\Bullet\CreatePhysicsFactory.cpp">
@@ -1194,6 +1206,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Physics\Bullet\Bullet\LinearMath\btVector3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\Bullet\cBulletHingeConstraint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\Bullet\cBullet6DoFConstraint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics\Bullet\cBulletSliderConstraint.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

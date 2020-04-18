@@ -15,7 +15,8 @@ namespace nPhysics
 
 		mDynamicsWorld = new btDiscreteDynamicsWorld(mDispatcher, mOverlappingPairCache, mSolver, mCollisionConfiguration);
 
-		mDynamicsWorld->setGravity(btVector3(0, -9.81, 0));
+		//mDynamicsWorld->setGravity(btVector3(0, -9.81, 0));
+		mDynamicsWorld->setGravity(btVector3(0, 0, -9.81));
 	}
 
 	cBulletPhysicsWorld::~cBulletPhysicsWorld()
@@ -58,45 +59,7 @@ namespace nPhysics
 
 	void cBulletPhysicsWorld::Update(float dt)
 	{	
-
-		mDynamicsWorld->stepSimulation(dt);
-	//	mDt = dt;
-
-	//	// 1) If we have no bodies, there's nothing to do... return.
-	//	if (mBodies.empty())
-	//		return;
-
-	//	// 2) Integrate each body.
-	//	std::vector<cBulletRigidBody*>::iterator it = mBodies.begin();
-	//	while (it != mBodies.end())
-	//	{
-	//		IntegrateRigidBody(dynamic_cast<cBulletRigidBody*>(*it), dt);
-	//		//ApplyDamping(dynamic_cast<cSimpleRigidBody*>(*it));
-	//		it++;
-	//	}
-
-	//	// 3) Perform collision handling on each unique pair of bodies.
-	//	std::vector<std::pair<iRigidBody*, iRigidBody*>> collisions;
-	//	size_t numBodies = mBodies.size();
-	//	for (size_t idxA = 0; idxA < numBodies - 1; idxA++)
-	//	{
-	//		for (size_t idxB = idxA + 1; idxB < numBodies; idxB++)
-	//		{
-	//			if (Collide(mBodies[idxA], mBodies[idxB]))
-	//			{
-	//				collisions.push_back(std::make_pair(mBodies[idxA], mBodies[idxB]));
-	//			}
-	//		}
-	//	}
-
-	//	// 4) Clear the acceleration of each rigid body.
-	//	it = mBodies.begin();
-	//	while (it != mBodies.end())
-	//	{
-	//		cBulletRigidBody* rb = dynamic_cast<cBulletRigidBody*>(*it);
-	//		rb->mAcceleration = glm::vec3(0.f, 0.f, 0.f);
-	//		it++;
-	//	}
+		mDynamicsWorld->stepSimulation(dt, 0, 1.f / 60.f);
 	}
 
 	bool cBulletPhysicsWorld::AddBody(iRigidBody* rigidBody)
@@ -127,6 +90,84 @@ namespace nPhysics
 		mDynamicsWorld->removeRigidBody(bulletBtBody);
 
 		return true;
+	}
+
+	bool cBulletPhysicsWorld::AddConstraint(iConstraint* constraint)
+	{
+		// 1) Null check
+		if (constraint == 0) return false;
+
+		if (constraint->GetConstraintType() == eConstraintType::HINGE_CONSTRAINT)
+		{
+			cBulletHingeConstraint* hinge = dynamic_cast<cBulletHingeConstraint*>(constraint);
+
+			if (!hinge) return false;
+
+			hinge->AddSelfToWorld(mDynamicsWorld);
+
+			return true;
+		}
+		else if (constraint->GetConstraintType() == eConstraintType::SIXDOF_CONSTRAINT)
+		{
+			cBullet6DoFConstraint* sixDoF = dynamic_cast<cBullet6DoFConstraint*>(constraint);
+
+			if (!sixDoF) return false;
+
+			sixDoF->AddSelfToWorld(mDynamicsWorld);
+
+			return true;
+		}
+		else if (constraint->GetConstraintType() == eConstraintType::SLIDER_CONSTRAINT)
+		{
+			cBulletSliderConstraint* slider = dynamic_cast<cBulletSliderConstraint*>(constraint);
+
+			if (!slider) return false;
+
+			slider->AddSelfToWorld(mDynamicsWorld);
+
+			return true;
+		}
+
+		return false;
+	}
+
+	bool cBulletPhysicsWorld::RemoveConstraint(iConstraint* constraint)
+	{
+		// 1) Null check
+		if (!constraint) return false;
+
+		if (constraint->GetConstraintType() == eConstraintType::HINGE_CONSTRAINT)
+		{
+			cBulletHingeConstraint* hinge = dynamic_cast<cBulletHingeConstraint*>(constraint);
+
+			if (!hinge) return false;
+
+			hinge->RemoveSelfFromWorld(mDynamicsWorld);
+
+			return true;
+		}
+		else if (constraint->GetConstraintType() == eConstraintType::SIXDOF_CONSTRAINT)
+		{
+			cBullet6DoFConstraint* sixDoF = dynamic_cast<cBullet6DoFConstraint*>(constraint);
+
+			if (!sixDoF) return false;
+
+			sixDoF->RemoveSelfFromWorld(mDynamicsWorld);
+
+			return true;
+		}
+		else if (constraint->GetConstraintType() == eConstraintType::SLIDER_CONSTRAINT)
+		{
+			cBulletSliderConstraint* slider = dynamic_cast<cBulletSliderConstraint*>(constraint);
+
+			if (!slider) return false;
+
+			slider->RemoveSelfFromWorld(mDynamicsWorld);
+
+			return true;
+		}
+
+		return false;
 	}
 
 	//void cBulletPhysicsWorld::IntegrateRigidBody(cBulletRigidBody* body, float dt)

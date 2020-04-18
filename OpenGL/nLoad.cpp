@@ -16,7 +16,7 @@ namespace nLoad
 			return false;
 		}
 
-		Json::Value jsonSuperDefs = jsonConfig["ObjectDefs"];
+		Json::Value jsonSuperDefs = jsonConfig["Entities"];
 		if (!jsonSuperDefs.isArray())
 		{
 			return false;
@@ -127,6 +127,16 @@ namespace nLoad
 								object->rigidBody = gPhysicsFactory->CreateRigidBody(def, plane);
 								object->bDontLight = true;
 							}
+						}
+					}
+				}
+
+				if (jsonSuperDef["Type"].isString())
+				{
+					if (jsonSuperDef["Shape"].asString() == "Hinge")
+					{
+						if (jsonSuperDef["Radius"].isDouble())
+						{
 						}
 					}
 				}

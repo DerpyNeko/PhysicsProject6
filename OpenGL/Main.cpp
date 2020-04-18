@@ -165,6 +165,8 @@ int main(void)
 
 	physicsWorld = gPhysicsFactory->CreatePhysicsWorld();
 
+	physicsWorld->SetGravity(glm::vec3(0.0f, 0.0f, -9.81f));
+
 	nLoad::LoadConfig("assets/json/objects.json");
 
 	std::vector<cMeshObject*> vec_pTransparentObject;
@@ -172,6 +174,10 @@ int main(void)
 
 	for (cMeshObject* m : g_MeshObjects)
 	{
+		if (m->friendlyName.compare("Roof") == 0)
+		{
+			m->bIsVisible == false;
+		}
 		if (m->materialDiffuse.a < 1.0f)
 		{
 			vec_pTransparentObject.push_back(m);
@@ -223,34 +229,34 @@ int main(void)
 		glUniformMatrix4fv(matView_location, 1, GL_FALSE, glm::value_ptr(matView));
 		glUniformMatrix4fv(matProj_location, 1, GL_FALSE, glm::value_ptr(matProjection));
 
-		for (sLight* light : g_Lights)
-		{
-			glUniform4f(light->position_UniLoc, light->position.x,
-				light->position.y, light->position.z, 1.0f);
+		//for (sLight* light : g_Lights)
+		//{
+		//	glUniform4f(light->position_UniLoc, light->position.x,
+		//		light->position.y, light->position.z, 1.0f);
 
-			glUniform4f(light->diffuse_UniLoc, light->diffuse.x,
-				light->diffuse.y, light->diffuse.z, 1.0f);
+		//	glUniform4f(light->diffuse_UniLoc, light->diffuse.x,
+		//		light->diffuse.y, light->diffuse.z, 1.0f);
 
-			glUniform4f(light->param2_UniLoc, 1.0f, 0.0f, 0.0f, 0.0f);
+		//	glUniform4f(light->param2_UniLoc, 1.0f, 0.0f, 0.0f, 0.0f);
 
-			glUniform4f(light->atten_UniLoc, light->atten.x,
-				light->atten.y, light->atten.z, light->atten.w);
+		//	glUniform4f(light->atten_UniLoc, light->atten.x,
+		//		light->atten.y, light->atten.z, light->atten.w);
 
-			//cMeshObject* pDebugSphere = findObjectByFriendlyName("DebugSphere");
-			//pDebugSphere->bIsVisible = true;
-			//pDebugSphere->bDontLight = true;
+		//	//cMeshObject* pDebugSphere = findObjectByFriendlyName("DebugSphere");
+		//	//pDebugSphere->bIsVisible = true;
+		//	//pDebugSphere->bDontLight = true;
 
-			//glm::vec4 oldDiffuse = pDebugSphere->materialDiffuse;
-			//glm::vec3 oldScale = pDebugSphere->nonUniformScale;
+		//	//glm::vec4 oldDiffuse = pDebugSphere->materialDiffuse;
+		//	//glm::vec3 oldScale = pDebugSphere->nonUniformScale;
 
-			//pDebugSphere->setDiffuseColour(glm::vec3(255.0f / 255.0f, 105.0f / 255.0f, 180.0f / 255.0f));
-			//pDebugSphere->bUseVertexColour = false;
-			//pDebugSphere->rigidBody->GetPosition() = glm::vec3(light->position);
-			//glm::mat4 matBall(1.0f);
+		//	//pDebugSphere->setDiffuseColour(glm::vec3(255.0f / 255.0f, 105.0f / 255.0f, 180.0f / 255.0f));
+		//	//pDebugSphere->bUseVertexColour = false;
+		//	//pDebugSphere->rigidBody->GetPosition() = glm::vec3(light->position);
+		//	//glm::mat4 matBall(1.0f);
 
-			//pDebugSphere->materialDiffuse = oldDiffuse;
-			//DrawObject(pDebugSphere, matBall, program);
-		}//for ( sLight* light : g_Lights
+		//	//pDebugSphere->materialDiffuse = oldDiffuse;
+		//	//DrawObject(pDebugSphere, matBall, program);
+		//}//for ( sLight* light : g_Lights
 
 		{
 			// Draw the skybox first 
@@ -304,8 +310,8 @@ int main(void)
 			DrawObject(pCurrentMesh, matModel, program);
 		}
 
-		//glm::vec3 position = g_MeshObjects.at(gLookAtModel)->rigidBody->GetPosition() - g_pCamera->eye;
-		//g_pCamera->setCameraAt(glm::normalize(position));
+		glm::vec3 position = g_MeshObjects.at(2)->rigidBody->GetPosition() - g_pCamera->eye;
+		g_pCamera->setCameraAt(glm::normalize(position));
 
 		// High res timer (likely in ms or ns)
 		double currentTime = glfwGetTime();

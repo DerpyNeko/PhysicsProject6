@@ -39,7 +39,6 @@ namespace nPhysics
 		btRigidBody::btRigidBodyConstructionInfo rbInfo(mass, mMotionState, colShape, localInertia);
 		mBody = new btRigidBody(rbInfo);
 		mBody->setLinearVelocity(nConvert::ToBullet(rbDef.Velocity));
-
 	}
 
 	cBulletRigidBody::~cBulletRigidBody()
@@ -52,6 +51,8 @@ namespace nPhysics
 
 	void cBulletRigidBody::ApplyForce(const glm::vec3& force)
 	{
+		mBody->activate();
+		mBody->applyCentralForce(nConvert::ToBullet(force));
 	}
 
 	void cBulletRigidBody::GetTransform(glm::mat4& transformOut)

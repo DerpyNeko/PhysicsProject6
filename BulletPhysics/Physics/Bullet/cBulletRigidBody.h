@@ -34,12 +34,14 @@ namespace nPhysics
 
 		// GetTransform
 		// Retrieve a rendering-friendly form of position + rotation
-		void GetTransform(glm::mat4& transformOut);
+		virtual void GetTransform(glm::mat4& transformOut);
 
 		// ApplyForce
 		// Apply an external force to this rigid body.
 		// The force is applied center-mass, affecting the acceleration.
-		void ApplyForce(const glm::vec3& force);
+		virtual void ApplyForce(const glm::vec3& force);
+
+		virtual void ApplyImpulse(const glm::vec3& impulse);
 
 		// Returns the rigidbody of the bullet
 		inline btRigidBody* GetBulletBody()
@@ -49,12 +51,12 @@ namespace nPhysics
 
 		// GetPosition
 		// Get the position of the rigid body
-		glm::vec3 GetPosition();
+		virtual glm::vec3 GetPosition();
 
 		// TODO:
 		// ApplyImpulse
 		// Apply an impulse to the center-mass of this rigid body.
-		// ApplyImpulse(const glm::vec3& impulse);
+		//virtual void ApplyImpulse(const glm::vec3& impulse);
 
 		// GetShape
 		// Get this rigid body's shape.

@@ -78,6 +78,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(SolutionDir)Math;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -139,8 +140,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Physics\Interfaces\Constraints.h" />
+    <ClInclude Include="Physics\Interfaces\eConstraintType.h" />
     <ClInclude Include="Physics\Interfaces\eShapeType.h" />
     <ClInclude Include="Physics\Interfaces\Interfaces.h" />
+    <ClInclude Include="Physics\Interfaces\iConstraint.h" />
     <ClInclude Include="Physics\Interfaces\iPhysicsFactory.h" />
     <ClInclude Include="Physics\Interfaces\iPhysicsWorld.h" />
     <ClInclude Include="Physics\Interfaces\iRigidBody.h" />

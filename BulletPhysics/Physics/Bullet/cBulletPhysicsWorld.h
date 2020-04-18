@@ -2,8 +2,12 @@
 #define _cSimplePhysicsWorld_HG_
 
 #include <Physics/Interfaces/iPhysicsWorld.h>
+#include <Physics/Interfaces/iConstraint.h>
 #include "cBulletRigidBody.h"
 #include "BulletShapes.h"
+#include "cBullet6DoFConstraint.h"
+#include "cBulletHingeConstraint.h"
+#include "cBulletSliderConstraint.h"
 #include <vector>
 
 // Physics world that simulates rigid bodies
@@ -40,13 +44,13 @@ namespace nPhysics
 		// SetGravity
 		// Set the gravity acceleration vector.
 		// This will be applied to all rigid bodies during timesteps.
-		void SetGravity(const glm::vec3& gravity);
+		virtual void SetGravity(const glm::vec3& gravity);
 
 		// Update
 		// A single trigger to perform a single timestep.
 		// All rigid bodies will go through integration, collision
 		// detection and reaction, and have their internal values updated.
-		void Update(float dt);
+		virtual void Update(float dt);
 
 		// AddRigidBody
 		// Add a rigid body to the world. 
@@ -71,6 +75,28 @@ namespace nPhysics
 		//    This particular rigid body was not in the world, hense not removed.
 		virtual bool RemoveBody(iRigidBody* rigidBody);
 
+		// AddConstraint
+		// Add a constraint to the world. 
+		// Returns true if:
+		//    There was an addition to the world.
+		//    This particular constraint was added to the world.
+		//    (It must not have already been contained in the world)
+		// Returns false if:
+		//    There was no addition to the world.
+		//    A null pointer is passed in.
+		//    This particular constraint is already in the world, hense not added again.
+		virtual bool AddConstraint(iConstraint* constraint);
+
+		// RemoveConstraint
+		// Remove a constraint from the world.
+		// Returns true if:
+		//    There was a removal from the world.
+		//    This particular constraint existed in the world and was removed.
+		// Returns false if:
+		//    There was no removal from the world.
+		//    A null pointer was passed in.
+		//    This particular constraint was not in the world, hense not removed.
+		virtual bool RemoveConstraint(iConstraint* constraint);
 	protected:
 
 		// IntegrateRigidBody
@@ -113,6 +139,8 @@ namespace nPhysics
 
 		// Bullet discrete dynamic world
 		btDiscreteDynamicsWorld* mDynamicsWorld;
+
+		btAlignedObjectArray<btCollisionShape*> collisionShapes;
 
 		// Constructors not to be used.
 		cBulletPhysicsWorld(const cBulletPhysicsWorld& other) = delete;

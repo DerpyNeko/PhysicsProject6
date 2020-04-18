@@ -375,12 +375,16 @@
     <ClInclude Include="Physics\Bullet\Bullet\LinearMath\btTransformUtil.h" />
     <ClInclude Include="Physics\Bullet\Bullet\LinearMath\btVector3.h" />
     <ClInclude Include="Physics\Bullet\Bullet\LinearMath\TaskScheduler\btThreadSupportInterface.h" />
+    <ClInclude Include="Physics\Bullet\cBullet6DoFConstraint.h" />
+    <ClInclude Include="Physics\Bullet\cBulletHingeConstraint.h" />
+    <ClInclude Include="Physics\Bullet\cBulletSliderConstraint.h" />
     <ClInclude Include="Physics\Bullet\CreatePhysicsFactory.h" />
     <ClInclude Include="Physics\Bullet\cBulletPhysicsFactory.h" />
     <ClInclude Include="Physics\Bullet\cBulletPhysicsWorld.h" />
     <ClInclude Include="Physics\Bullet\cBulletRigidBody.h" />
     <ClInclude Include="Physics\Bullet\BulletShapes.h" />
     <ClInclude Include="Physics\Bullet\nConvert.h" />
+    <ClInclude Include="Physics\Interfaces\iBulletComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Physics\Bullet\Bullet\BulletCollision\BroadphaseCollision\btAxisSweep3.cpp" />
@@ -534,6 +538,9 @@
     <ClCompile Include="Physics\Bullet\Bullet\LinearMath\TaskScheduler\btTaskScheduler.cpp" />
     <ClCompile Include="Physics\Bullet\Bullet\LinearMath\TaskScheduler\btThreadSupportPosix.cpp" />
     <ClCompile Include="Physics\Bullet\Bullet\LinearMath\TaskScheduler\btThreadSupportWin32.cpp" />
+    <ClCompile Include="Physics\Bullet\cBullet6DoFConstraint.cpp" />
+    <ClCompile Include="Physics\Bullet\cBulletHingeConstraint.cpp" />
+    <ClCompile Include="Physics\Bullet\cBulletSliderConstraint.cpp" />
     <ClCompile Include="Physics\Bullet\CreatePhysicsFactory.cpp" />
     <ClCompile Include="Physics\Bullet\cBulletPhysicsFactory.cpp" />
     <ClCompile Include="Physics\Bullet\cBulletPhysicsWorld.cpp" />

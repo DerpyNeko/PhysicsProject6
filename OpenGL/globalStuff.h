@@ -45,6 +45,4 @@ void LoadModelsIntoScene(std::vector<cMeshObject*> &vec_pObjectsToDraw);
 
 void DrawObject(cMeshObject* pCurrentMesh, glm::mat4x4 &matModel, GLuint shaderProgramID);
 
-extern int gLookAtModel;
-
 #endif	// _globalStuff_HG_
