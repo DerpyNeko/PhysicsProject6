@@ -66,5 +66,42 @@ namespace nPhysics
 		// Returns the normal of the plane
 		virtual glm::vec3 GetPlaneNormal();
 	};
+
+	// Box class
+	class cBulletBox : public iBoxShape, public iBulletShape
+	{
+		friend class cSimplePhysicsWorld;
+
+	public:
+		cBulletBox(const glm::vec3& boxHalfExtents);
+
+		virtual ~cBulletBox();
+	};
+
+	// Capsule class
+	class cBulletCapsule : public iCapsuleShape, public iBulletShape
+	{
+		friend class cSimplePhysicsWorld;
+
+	public:
+		cBulletCapsule(float radius, float height);
+
+		virtual ~cBulletCapsule();
+
+		virtual int GetUpAxis();
+		virtual float GetRadius();
+		virtual float GetHalfHeight();
+	};
+
+	// tetrahedron class
+	class cBulletTetrahedron : public iTetrahedronShape, public iBulletShape
+	{
+		friend class cSimplePhysicsWorld;
+
+	public:
+		cBulletTetrahedron();
+
+		virtual ~cBulletTetrahedron();
+	};
 }
 #endif

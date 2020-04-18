@@ -22,6 +22,8 @@
 #include "Error/CErrorLog.h"
 #include "DebugRenderer/iDebugRenderer.h"
 
+#include "fmod.hpp"
+
 extern bool isFireProjectile;
 
 extern iDebugRenderer* g_pDebugRenderer;
@@ -30,6 +32,7 @@ extern cVAOMeshManager* g_pVAOMeshManager;
 
 extern std::vector< cMeshObject* > g_MeshObjects;
 extern int g_ModelIndex;
+extern int gLookAtModel;
 
 extern cBasicTextureManager* g_pTextureManager;
 
@@ -38,13 +41,14 @@ extern int g_LightIndex;
 extern bool g_bDrawDebugLightSpheres;
 
 void CreateLights(GLint program);
-
 void LoadModelTypes(cVAOMeshManager* pTheVAOMeshManager, GLuint shaderProgramID);
-
 void LoadModelsIntoScene(std::vector<cMeshObject*> &vec_pObjectsToDraw);
-
 void DrawObject(cMeshObject* pCurrentMesh, glm::mat4x4 &matModel, GLuint shaderProgramID);
+cMeshObject* findObjectByFriendlyName(std::string theNameToFind);
 
-extern int gLookAtModel;
+extern FMOD_RESULT _result;
+extern FMOD::System* _system;
+ extern FMOD::Sound* soundArray[];
+ extern FMOD::Channel* channelArray[];
 
 #endif	// _globalStuff_HG_

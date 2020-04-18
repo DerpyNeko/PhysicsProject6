@@ -112,7 +112,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;fmod64_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -146,7 +146,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;fmod64_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -187,6 +187,15 @@
     <ClInclude Include="DebugRenderer\iDebugRenderer.h" />
     <ClInclude Include="Error\CErrorLog.h" />
     <ClInclude Include="Error\COpenGLError.h" />
+    <ClInclude Include="FMOD\fmod.h" />
+    <ClInclude Include="FMOD\fmod.hpp" />
+    <ClInclude Include="FMOD\fmod_codec.h" />
+    <ClInclude Include="FMOD\fmod_common.h" />
+    <ClInclude Include="FMOD\fmod_dsp.h" />
+    <ClInclude Include="FMOD\fmod_dsp_effects.h" />
+    <ClInclude Include="FMOD\fmod_errors.h" />
+    <ClInclude Include="FMOD\fmod_output.h" />
+    <ClInclude Include="FMOD\ft2build.h" />
     <ClInclude Include="globalOpenGLStuff.h" />
     <ClInclude Include="globalStuff.h" />
     <ClInclude Include="json\json-forwards.h" />

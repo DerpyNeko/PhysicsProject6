@@ -24,6 +24,30 @@
       "Normal": [ 0.0, 1.0, 0.0 ]
     },
     {
+      "Mesh": "paddle.ply",
+      "Name": "Paddle 1",
+      "Color": [ 0.0, 0.3, 0.4 ],
+      "Mass": 0.0,
+      "Position": [ 19.5, 1.5, 3.5 ],
+      "Velocity": [ 0.0, -1.0, 0.0 ],
+      "Orientation": [ 0.0, 90.0, 0.0 ],
+      "Shape": "Plane",
+      "Constant": 0,
+      "Normal": [ 0.0, 1.0, 0.0 ]
+    },
+    {
+      "Mesh": "paddle.ply",
+      "Name": "Paddle 2",
+      "Color": [ 0.0, 0.3, 0.4 ],
+      "Mass": 0.0,
+      "Position": [ 11.5, 1.5, 3.5 ],
+      "Velocity": [ 0.0, -1.0, 0.0 ],
+      "Orientation": [ 0.0, 270.0, 0.0 ],
+      "Shape": "Plane",
+      "Constant": 0,
+      "Normal": [ 0.0, 1.0, 0.0 ]
+    },
+    {
       "Mesh": "Cube_1x35.ply",
       "Name": "Side Wall 1",
       "Color": [ 1.0, 0.0, 1.0 ],
@@ -132,25 +156,25 @@
       "Normal": [ 0.0, 1.0, 0.0 ]
     },
     {
-      "Mesh": "Cube_1x2.ply",
-      "Name": "Cube 5",
+      "Mesh": "capsule.ply",
+      "Name": "capsule 1",
       "Color": [ 0.0, 0.0, 1.0 ],
       "Mass": 0.0,
       "Position": [ 13.5, 1.5, 27.0 ],
       "Velocity": [ 0.0, -1.0, 0.0 ],
-      "Orientation": [ 0.0, 0.0, 0.0 ],
+      "Orientation": [ 90.0, 0.0, 0.0 ],
       "Shape": "Plane",
       "Constant": 0,
       "Normal": [ 0.0, 1.0, 0.0 ]
     },
     {
-      "Mesh": "Cube_1x2.ply",
-      "Name": "Cube 6",
+      "Mesh": "capsule.ply",
+      "Name": "capsule 2",
       "Color": [ 0.0, 0.0, 1.0 ],
       "Mass": 0.0,
       "Position": [ 16.5, 1.5, 27.0 ],
       "Velocity": [ 0.0, -1.0, 0.0 ],
-      "Orientation": [ 0.0, 0.0, 0.0 ],
+      "Orientation": [ 90.0, 0.0, 0.0 ],
       "Shape": "Plane",
       "Constant": 0,
       "Normal": [ 0.0, 1.0, 0.0 ]
@@ -547,30 +571,6 @@
       "Position": [ 16.5, 1.5, 23.5 ],
       "Velocity": [ 0.0, -1.0, 0.0 ],
       "Orientation": [ 0.0, 270.0, 0.0 ],
-      "Shape": "Plane",
-      "Constant": 0,
-      "Normal": [ 0.0, 1.0, 0.0 ]
-    },
-    {
-      "Mesh": "paddle.ply",
-      "Name": "Paddle 1",
-      "Color": [ 0.0, 0.3, 0.4 ],
-      "Mass": 0.0,
-      "Position": [ 11.5, 1.5, 3.5 ],
-      "Velocity": [ 0.0, -1.0, 0.0 ],
-      "Orientation": [ 0.0, 270.0, 0.0 ],
-      "Shape": "Plane",
-      "Constant": 0,
-      "Normal": [ 0.0, 1.0, 0.0 ]
-    },
-    {
-      "Mesh": "paddle.ply",
-      "Name": "Paddle 2",
-      "Color": [ 0.0, 0.3, 0.4 ],
-      "Mass": 0.0,
-      "Position": [ 19.5, 1.5, 3.5 ],
-      "Velocity": [ 0.0, -1.0, 0.0 ],
-      "Orientation": [ 0.0, 90.0, 0.0 ],
       "Shape": "Plane",
       "Constant": 0,
       "Normal": [ 0.0, 1.0, 0.0 ]
