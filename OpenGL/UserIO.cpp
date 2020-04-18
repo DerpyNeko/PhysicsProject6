@@ -19,80 +19,70 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
 		glfwSetWindowShouldClose(window, GLFW_TRUE);	
 	}
 	
-	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+	// PADDLE COMMANDS
+	if (key == GLFW_KEY_LEFT && action == GLFW_PRESS)
 	{
-		//playerVelocity->vy = 3.0f;
-		yPos = true;
+		std::cout << "LEFT PRESS" << std::endl;
+		_result = _system->playSound(soundArray[4], 0, false, &channelArray[0]);
+		assert(!_result);
 	}
 
-	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_RELEASE && yPos == true)
+	if (key == GLFW_KEY_LEFT && action == GLFW_RELEASE)
 	{
-		//playerVelocity->vy = 0.0f;
-		yPos = false;
+		std::cout << "LEFT RELEASE" << std::endl;
+		_result = _system->playSound(soundArray[5], 0, false, &channelArray[1]);
+		assert(!_result);
 	}
 
-	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)	// "backwards"
+	if (key == GLFW_KEY_RIGHT && action == GLFW_PRESS)
 	{
-		//playerVelocity->vy = -3.0f;
-		yNeg = true;
+		std::cout << "RIGHT PRESS" << std::endl;
+		_result = _system->playSound(soundArray[4], 0, false, &channelArray[0]);
+		assert(!_result);
 	}
 
-	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_RELEASE && yNeg == true)
+	if (key == GLFW_KEY_RIGHT && action == GLFW_RELEASE)
 	{
-		//playerVelocity->vy = 0.0f;
-		yNeg = false;
+		std::cout << "RIGHT RELEASE" << std::endl;
+		_result = _system->playSound(soundArray[5], 0, false, &channelArray[1]);
+		assert(!_result);
 	}
 
-	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)	// "left"
+	// LAUNCHER COMMAND
+	if (key == GLFW_KEY_SPACE && action == GLFW_RELEASE)
 	{
-		//playerVelocity->vx = 3.0f;
-		xPos = true;
+		std::cout << "SPACE RELEASE" << std::endl;
+		_result = _system->playSound(soundArray[3], 0, false, &channelArray[2]);
+		assert(!_result);
 	}
-
-	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_RELEASE && xPos)	// "left"
-	{
-		//playerVelocity->vx = 0.0f;
-		xPos = false;
-	}
-
-	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)	// "right"
-	{
-		//playerVelocity->vx = -3.0f;
-		xNeg = true;
-	}
-
-	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_RELEASE && xNeg)	// "right"
-	{
-		//playerVelocity->vx = 0.0f;
-		xNeg = false;
-	}
-
-	if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
-	{
-	}
-
+	
 	return;
 }
 
 void ProcessAsyncKeys(GLFWwindow* window)
 {
+	// PADDLE COMMANDS
+	if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
+	{
+		cMeshObject* pObject = findObjectByFriendlyName("Paddle 1");
+		pObject->setDiffuseColour(glm::vec3(1.0f, 0.0f, 0.0f));
+	}
+	if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_RELEASE)
+	{
+		cMeshObject* pObject = findObjectByFriendlyName("Paddle 1");
+		pObject->setDiffuseColour(glm::vec3(0.0f, 0.3f, 0.4f));
+	}
+	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
+	{
+		cMeshObject* pObject = findObjectByFriendlyName("Paddle 2");
+		pObject->setDiffuseColour(glm::vec3(1.0f, 0.0f, 0.0f));
+	}
+	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_RELEASE)
+	{
+		cMeshObject* pObject = findObjectByFriendlyName("Paddle 2");
+		pObject->setDiffuseColour(glm::vec3(0.0f, 0.3f, 0.4f));
+	}
 
-	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-	{
-		::g_pCamera->MoveForward_Z(+10);
-	}
-	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)	// "backwards"
-	{
-		::g_pCamera->MoveForward_Z(-10);
-	}
-	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)	// "left"
-	{
-		::g_pCamera->MoveLeftRight_X(-10);
-	}
-	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)	// "right"
-	{
-		::g_pCamera->MoveLeftRight_X(+10);
-	}
 	return;
 }
 

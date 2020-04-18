@@ -149,7 +149,13 @@ void LoadModelTypes(cVAOMeshManager* pTheVAOMeshManager, GLuint shaderProgramID)
 		sModelDrawInfo flipInfo;
 		flipInfo.meshFileName = "flip.ply";
 		pTheVAOMeshManager->LoadModelIntoVAO(flipInfo, shaderProgramID);
+
+		sModelDrawInfo capsuleInfo;
+		capsuleInfo.meshFileName = "capsule.ply";
+		pTheVAOMeshManager->LoadModelIntoVAO(capsuleInfo, shaderProgramID);
+
 	}
+
 	// At this point, mesh in in GPU
 	std::cout << "Mesh was loaded OK" << std::endl;
 

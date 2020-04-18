@@ -35,6 +35,36 @@
       "UpperLimit": [ 27.0, 2.0, 36.0 ],
       "LowerLimit": [ 0.0, 1.0, 0.0 ]
     },
+	{
+      "Mesh": "paddle.ply",
+      "Name": "Paddle 1",
+      "Color": [ 0.0, 0.3, 0.4 ],
+      "Mass": 0.0,
+      "Position": [ 19.5, 1.5, 3.5 ],
+      "Velocity": [ 0.0, -1.0, 0.0 ],
+      "Orientation": [ 0.0, 90.0, 0.0 ],
+      "Type": "Hinge",
+      "Width": 1.0,
+      "Height": 2.0,
+      "Thickness": 5.0,
+      "Pivot": [ 0.0, 0.0, 2.4 ],
+      "Axis": [ 0.0, 1.0, 0.0 ]
+    },
+    {
+      "Mesh": "paddle.ply",
+      "Name": "Paddle 2",
+      "Color": [ 0.0, 0.3, 0.4 ],
+      "Mass": 0.0,
+      "Position": [ 11.5, 1.5, 3.5 ],
+      "Velocity": [ 0.0, -1.0, 0.0 ],
+      "Orientation": [ 0.0, 270.0, 0.0 ],
+      "Type": "Hinge",
+      "Width": 1.0,
+      "Height": 2.0,
+      "Thickness": 5.0,
+      "Pivot": [ 0.0, 0.0, 2.4 ],
+      "Axis": [ 0.0, 1.0, 0.0 ]
+    },
     //{
     //  "Mesh": "Cube_27x36.ply",
     //  "Name": "Roof",
@@ -156,8 +186,8 @@
     //  "Normal": [ 0.0, 1.0, 0.0 ]
     //},
     //{
-    //  "Mesh": "Cube_1x2.ply",
-    //  "Name": "Cube 5",
+    //  "Mesh": "capsule.ply",
+    //  "Name": "capsule 1",
     //  "Color": [ 0.0, 0.0, 1.0 ],
     //  "Mass": 0.0,
     //  "Position": [ 13.5, 1.5, 27.0 ],
@@ -168,8 +198,8 @@
     //  "Normal": [ 0.0, 1.0, 0.0 ]
     //},
     //{
-    //  "Mesh": "Cube_1x2.ply",
-    //  "Name": "Cube 6",
+    //  "Mesh": "capsule.ply",
+    //  "Name": "capsule 2",
     //  "Color": [ 0.0, 0.0, 1.0 ],
     //  "Mass": 0.0,
     //  "Position": [ 16.5, 1.5, 27.0 ],
@@ -575,36 +605,6 @@
     //  "Constant": 0,
     //  "Normal": [ 0.0, 1.0, 0.0 ]
     //},
-    {
-      "Mesh": "paddle.ply",
-      "Name": "Paddle 1",
-      "Color": [ 0.0, 0.3, 0.4 ],
-      "Mass": 0.0,
-      "Position": [ 19.5, 1.5, 3.5 ],
-      "Velocity": [ 0.0, -1.0, 0.0 ],
-      "Orientation": [ 0.0, 90.0, 0.0 ],
-      "Type": "Hinge",
-      "Width": 1.0,
-      "Height": 2.0,
-      "Thickness": 5.0,
-      "Pivot": [ 0.0, 0.0, 2.4 ],
-      "Axis": [ 0.0, 1.0, 0.0 ]
-    },
-    {
-      "Mesh": "paddle.ply",
-      "Name": "Paddle 2",
-      "Color": [ 0.0, 0.3, 0.4 ],
-      "Mass": 0.0,
-      "Position": [ 11.5, 1.5, 3.5 ],
-      "Velocity": [ 0.0, -1.0, 0.0 ],
-      "Orientation": [ 0.0, 270.0, 0.0 ],
-      "Type": "Hinge",
-      "Width": 1.0,
-      "Height": 2.0,
-      "Thickness": 5.0,
-      "Pivot": [ 0.0, 0.0, 2.4 ],
-      "Axis": [ 0.0, 1.0, 0.0 ]
-    },
     //{
     //  "Mesh": "HemiSphere_1x1.ply",
     //  "Name": "Bump 1",

@@ -15,6 +15,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <fstream>
 
 #include "cShaderManager.h"
 #include "DebugRenderer/cDebugRenderer.h"
@@ -22,6 +23,8 @@
 
 #include "Physics.h"
 #include "nLoad.h"
+
+#define NUM_OF_SOUNDS 7
 
 cDebugRenderer* g_pDebugRendererACTUAL = NULL;
 iDebugRenderer* g_pDebugRenderer = NULL;
@@ -41,6 +44,18 @@ cMeshObject* findObjectByFriendlyName(std::string theNameToFind);
 
 bool InitPhysics();
 bool nLoad::LoadConfig(const char* fileName);
+
+// FMOD variables
+FMOD_RESULT _result = FMOD_OK;
+FMOD::System* _system = NULL;
+FMOD::Sound* soundArray[NUM_OF_SOUNDS];
+FMOD::Channel* channelArray[NUM_OF_SOUNDS];
+FMOD::ChannelGroup* channelGroups[1];
+const char* fileNameArray[NUM_OF_SOUNDS];
+
+bool InitFmod();
+bool ShutdownFmod();
+void LoadMP3sFromFile();
 
 static void error_callback(int error, const char* description)
 {
@@ -154,14 +169,18 @@ int main(void)
 
 	/***************************************************/
 	if (!InitPhysics())
-	{
 		std::cout << "Error loading physics" << std::endl;
-	}
 
 	if (!gPhysicsFactory)
-	{
 		std::cout << "No super factory" << std::endl;
-	}
+
+	if (!InitFmod())
+		std::cout << "FMOD not inittialized." << std::endl;
+	else
+		LoadMP3sFromFile();
+
+	//_result = _system->playSound(soundArray[1], 0, false, &channelArray[0]);
+	//assert(!_result);
 
 	physicsWorld = gPhysicsFactory->CreatePhysicsWorld();
 
@@ -359,4 +378,85 @@ cMeshObject* findObjectByFriendlyName(std::string theNameToFind)
 	}
 
 	return NULL;
+}
+
+bool InitFmod()
+{
+	//Create the main system object
+	_result = FMOD::System_Create(&_system);
+	// Check for errors
+	assert(!_result);
+	//Initializes the system object, and the msound device. This has to be called at the start of the user's program
+	_result = _system->init(512, FMOD_INIT_NORMAL, NULL);
+	assert(!_result);
+
+	return true;
+}
+
+bool ShutdownFmod()
+{
+	if (_system) {
+		_result = _system->close();
+		assert(!_result);
+		_result = _system->release();
+		assert(!_result);
+	}
+
+	return true;
+}
+
+void LoadMP3sFromFile()
+{
+	std::ifstream myfile("soundFiles.txt");
+
+	if (myfile.is_open())
+	{
+		std::string path_start = "assets/sound/";
+		std::string file_path;
+		const char* full_path;
+		unsigned int index = 0;
+
+		for (std::string line; getline(myfile, line); )
+		{
+			// Get full file name
+			file_path = "";
+			file_path += path_start;
+			file_path += line;
+
+			// Convert to char*
+			full_path = file_path.c_str();
+
+			// Slap into fileNameArray
+			fileNameArray[index] = full_path;
+
+			// Turn it into a sound and put that into soundArray
+			_result = _system->createSound(fileNameArray[index], FMOD_DEFAULT, 0, &soundArray[index]);
+			assert(!_result);
+
+			// Increment index
+			index++;
+		}
+		myfile.close();
+
+		// create master channel group
+		_result = _system->getMasterChannelGroup(&channelGroups[0]);
+		assert(!_result);
+
+		// create other channel groups
+		_result = _system->createChannelGroup("Group 1", &channelGroups[1]);
+		assert(!_result);
+
+		_result = _system->createChannelGroup("Group 2", &channelGroups[2]);
+		assert(!_result);
+
+		// set other channel groups as child of master group
+		_result = channelGroups[0]->addGroup(channelGroups[1]);
+		assert(!_result);
+
+		_result = channelGroups[0]->addGroup(channelGroups[2]);
+		assert(!_result);
+	}
+	else
+		std::cout << "Can't open .MP3 file" << std::endl;
+ 
 }
