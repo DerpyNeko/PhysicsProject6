@@ -56,10 +56,6 @@ namespace nPhysics
 		// Destructor
 		virtual ~iBoxShape() { }
 
-		virtual float GetWidth() = 0;
-		virtual float GetLength() = 0;
-		virtual float GetHeight() = 0;
-
 	protected:
 		iBoxShape() : iShape(eShapeType::SHAPE_TYPE_BOX) {}
 
@@ -105,6 +101,23 @@ namespace nPhysics
 		iTetrahedronShape& operator=(const iTetrahedronShape& other) = delete;
 	};
 
+	// Cylinder interface
+	class iCylinderShape : public virtual iShape
+	{
+	public:
+		// Destructor
+		virtual ~iCylinderShape() {}
 
+		// Returns radius of the sphere
+		virtual float GetRadius() = 0;
+
+	protected:
+		// Constructor
+		iCylinderShape() : iShape(eShapeType::SHAPE_TYPE_CYLINDER) {}
+	private:
+		// Constructors not used
+		iCylinderShape(const iCylinderShape& other) = delete;
+		iCylinderShape& operator=(const iCylinderShape& other) = delete;
+	};
 }
 #endif

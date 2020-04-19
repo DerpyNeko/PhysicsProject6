@@ -29,6 +29,9 @@ namespace nLoad
 			nPhysics::sRigidBodyDef rbDef;
 			nPhysics::iSphereShape* sphere;
 			nPhysics::iPlaneShape* plane;
+			nPhysics::iBoxShape* box;
+			nPhysics::iCapsuleShape* capsule;
+			nPhysics::iTetrahedronShape* tetrahedron;
 
 			Json::Value jsonSuperDef = jsonSuperDefs[c];
 
