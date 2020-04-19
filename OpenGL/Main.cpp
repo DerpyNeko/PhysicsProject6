@@ -252,27 +252,27 @@ int main(void)
 		//{
 		//	glUniform4f(light->position_UniLoc, light->position.x,
 		//		light->position.y, light->position.z, 1.0f);
-
+		//
 		//	glUniform4f(light->diffuse_UniLoc, light->diffuse.x,
 		//		light->diffuse.y, light->diffuse.z, 1.0f);
-
+		//
 		//	glUniform4f(light->param2_UniLoc, 1.0f, 0.0f, 0.0f, 0.0f);
-
+		//
 		//	glUniform4f(light->atten_UniLoc, light->atten.x,
 		//		light->atten.y, light->atten.z, light->atten.w);
-
+		//
 		//	//cMeshObject* pDebugSphere = findObjectByFriendlyName("DebugSphere");
 		//	//pDebugSphere->bIsVisible = true;
 		//	//pDebugSphere->bDontLight = true;
-
+		//
 		//	//glm::vec4 oldDiffuse = pDebugSphere->materialDiffuse;
 		//	//glm::vec3 oldScale = pDebugSphere->nonUniformScale;
-
+		//
 		//	//pDebugSphere->setDiffuseColour(glm::vec3(255.0f / 255.0f, 105.0f / 255.0f, 180.0f / 255.0f));
 		//	//pDebugSphere->bUseVertexColour = false;
 		//	//pDebugSphere->rigidBody->GetPosition() = glm::vec3(light->position);
 		//	//glm::mat4 matBall(1.0f);
-
+		//
 		//	//pDebugSphere->materialDiffuse = oldDiffuse;
 		//	//DrawObject(pDebugSphere, matBall, program);
 		//}//for ( sLight* light : g_Lights

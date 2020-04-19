@@ -99,4 +99,26 @@ namespace nPhysics
 		mBulletShape = 0;
 	}
 
+
+	// Cylinder
+	cBulletCylinder::cBulletCylinder(const glm::vec3& boxHalfExtents) : iCylinderShape(), iShape(eShapeType::SHAPE_TYPE_CYLINDER)
+	{
+		mBulletShape = new btCylinderShape(btVector3(nConvert::ToBullet(boxHalfExtents)));
+	}
+
+	cBulletCylinder::~cBulletCylinder()
+	{
+		delete mBulletShape;
+		mBulletShape = 0;
+	}
+
+	float cBulletCylinder::GetRadius()
+	{
+		return dynamic_cast<btCylinderShape*>(mBulletShape)->getRadius();
+	}
+
+
+
+
+
 }

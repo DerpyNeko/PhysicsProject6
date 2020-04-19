@@ -103,5 +103,22 @@ namespace nPhysics
 
 		virtual ~cBulletTetrahedron();
 	};
+
+	// Cylinder class
+	class cBulletCylinder : public iCylinderShape, public iBulletShape
+	{
+		friend class cSimplePhysicsWorld;
+
+	public:
+		// Constructor, takes a radius
+		cBulletCylinder(const glm::vec3& boxHalfExtents);
+
+		// Destructor
+		virtual ~cBulletCylinder();
+
+		// Returns the radius of the sphere
+		virtual float GetRadius();
+	};
+
 }
 #endif
