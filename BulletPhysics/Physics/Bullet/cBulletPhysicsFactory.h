@@ -27,6 +27,18 @@ namespace nPhysics
 
 		// Creates a plane shape based on the normal and constant
 		virtual iPlaneShape* CreatePlaneShape(const glm::vec3& planeNormal, float planeConstant);
+
+		// box
+		virtual iBoxShape* CreateBoxShape(const glm::vec3& boxHalfExtents);
+
+		// capsule
+		virtual iCapsuleShape* CreateCapsuleShape(float radius, float height);
+
+		// tetrahedron
+		virtual iTetrahedronShape* CreateTetrahedronShape();
+
+		// cylinder
+		virtual iCylinderShape* CreateCylinderShape(const glm::vec3& boxHalfExtents);
 	};
 }
 

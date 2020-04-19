@@ -56,10 +56,6 @@ namespace nPhysics
 		// Destructor
 		virtual ~iBoxShape() { }
 
-		virtual float GetWidth() = 0;
-		virtual float GetLength() = 0;
-		virtual float GetHeight() = 0;
-
 	protected:
 		iBoxShape() : iShape(eShapeType::SHAPE_TYPE_BOX) {}
 
