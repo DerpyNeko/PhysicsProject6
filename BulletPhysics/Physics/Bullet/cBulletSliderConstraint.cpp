@@ -21,8 +21,8 @@ namespace nPhysics
 		mBody->setUserPointer(this);
 
 		mConstraint = new btSliderConstraint(*mBody, transform, false);
-		mConstraint->setLowerLinLimit(nConvert::ToBullet(def.LowerLimit));
-		mConstraint->setUpperLinLimit(nConvert::ToBullet(def.UpperLimit));
+		//mConstraint->setLowerLinLimit(btScalar(def.LowerLimit));
+		//mConstraint->setUpperLinLimit(nConvert::ToBullet(def.UpperLimit));
 	}
 
 	cBulletSliderConstraint::~cBulletSliderConstraint()

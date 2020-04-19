@@ -41,7 +41,7 @@ namespace nPhysics
 		// The force is applied center-mass, affecting the acceleration.
 		virtual void ApplyForce(const glm::vec3& force);
 
-		virtual void ApplyImpulse(const glm::vec3& impulse);
+		//virtual void ApplyImpulse(const glm::vec3& impulse);
 
 		// Returns the rigidbody of the bullet
 		inline btRigidBody* GetBulletBody()

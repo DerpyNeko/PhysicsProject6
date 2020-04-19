@@ -60,6 +60,8 @@ namespace nPhysics
 	void cBulletPhysicsWorld::Update(float dt)
 	{	
 		mDynamicsWorld->stepSimulation(dt, 0, 1.f / 60.f);
+
+		// TODO: Add collision check 
 	}
 
 	bool cBulletPhysicsWorld::AddBody(iRigidBody* rigidBody)

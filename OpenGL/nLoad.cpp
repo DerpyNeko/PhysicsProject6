@@ -26,7 +26,7 @@ namespace nLoad
 		for (int c = 0; c < numDefs; c++)
 		{
 			cMeshObject* object = new cMeshObject();
-			nPhysics::sRigidBodyDef def;
+			nPhysics::sRigidBodyDef rbDef;
 			nPhysics::iSphereShape* sphere;
 			nPhysics::iPlaneShape* plane;
 
@@ -64,7 +64,7 @@ namespace nLoad
 
 				if (jsonSuperDef["Mass"].isDouble())
 				{
-					def.Mass = jsonSuperDef["Mass"].asFloat();
+					rbDef.Mass = jsonSuperDef["Mass"].asFloat();
 				}
 				else
 				{
@@ -74,7 +74,7 @@ namespace nLoad
 				if (jsonSuperDef["Position"].isArray())
 				{
 					Json::Value t = jsonSuperDef["Position"];
-					def.Position = glm::vec3(t[0].asDouble(), t[1].asDouble(), t[2].asDouble());
+					rbDef.Position = glm::vec3(t[0].asDouble(), t[1].asDouble(), t[2].asDouble());
 				}
 				else
 				{
@@ -95,7 +95,7 @@ namespace nLoad
 				if (jsonSuperDef["Velocity"].isArray())
 				{
 					Json::Value t = jsonSuperDef["Velocity"];
-					def.Velocity = glm::vec3(t[0].asFloat(), t[1].asDouble(), t[2].asDouble());
+					rbDef.Velocity = glm::vec3(t[0].asFloat(), t[1].asDouble(), t[2].asDouble());
 				}
 				else
 				{
@@ -110,7 +110,7 @@ namespace nLoad
 						{
 							object->setUniformScale(jsonSuperDef["Radius"].asFloat());
 							sphere = gPhysicsFactory->CreateSphereShape(jsonSuperDef["Radius"].asFloat());
-							object->rigidBody = gPhysicsFactory->CreateRigidBody(def, sphere);
+							object->rigidBody = gPhysicsFactory->CreateRigidBody(rbDef, sphere);
 						}
 					}
 					else
@@ -124,7 +124,7 @@ namespace nLoad
 								plane = gPhysicsFactory->CreatePlaneShape(glm::vec3(t[0].asFloat(), t[1].asFloat(), t[2].asFloat()),
 									jsonSuperDef["Constant"].asFloat());
 
-								object->rigidBody = gPhysicsFactory->CreateRigidBody(def, plane);
+								object->rigidBody = gPhysicsFactory->CreateRigidBody(rbDef, plane);
 								object->bDontLight = true;
 							}
 						}
