@@ -88,20 +88,23 @@ namespace nPhysics
 
 		virtual ~cBulletCapsule();
 
-		virtual int GetUpAxis();
-		virtual float GetRadius();
-		virtual float GetHalfHeight();
+		virtual int GetUpAxis() override;
+		virtual float GetRadius() override;
+		virtual float GetHalfHeight() override;
 	};
 
-	// tetrahedron class
-	class cBulletTetrahedron : public iTetrahedronShape, public iBulletShape
+	// Cone class
+	class cBulletCone : public iConeShape, public iBulletShape
 	{
 		friend class cSimplePhysicsWorld;
 
 	public:
-		cBulletTetrahedron();
+		cBulletCone(float radius, float height);
 
-		virtual ~cBulletTetrahedron();
+		virtual ~cBulletCone();
+
+		virtual float GetRadius() override;
+		virtual float GetHeight() override;
 	};
 
 	// Cylinder class
@@ -117,7 +120,7 @@ namespace nPhysics
 		virtual ~cBulletCylinder();
 
 		// Returns the radius of the sphere
-		virtual float GetRadius();
+		virtual float GetRadius() override;
 	};
 
 }

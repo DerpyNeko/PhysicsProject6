@@ -1,10 +1,9 @@
 #ifndef _cBulletHingeConstraint_HG_
 #define _cBulletHingeConstraint_HG_
 
-#include <btBulletCollisionCommon.h>
-#include <btBulletDynamicsCommon.h>
-#include "../Interfaces/iBulletComponent.h"
-#include  <Physics/Interfaces/Constraints.h>
+#include "iBulletComponent.h"
+#include <Physics/Interfaces/Constraints.h>
+#include <Physics/Interfaces/iRigidBody.h>
 
 // Hinge class that creates a hinge effect on a bullet object
 
@@ -20,13 +19,17 @@ namespace nPhysics
 		// Destructor
 		virtual ~cBulletHingeConstraint();
 
+		virtual iRigidBody* GetRigidBody() override;
 		virtual void GetTransform(glm::mat4& transformOut) override;
 		virtual int GetUniqueEntityId() override;
 		virtual void SetUniqueEntityId(int id) override;
 
 		virtual void AddSelfToWorld(btDiscreteDynamicsWorld* world) override;
 		virtual void RemoveSelfFromWorld(btDiscreteDynamicsWorld* world) override;
-		
+
+		//virtual void AddSelfToWorld(btSimpleDynamicsWorld* world);
+		//virtual void RemoveSelfFromWorld(btSimpleDynamicsWorld* world);
+
 	private:
 		btRigidBody* mBody;
 		btHingeConstraint* mConstraint;

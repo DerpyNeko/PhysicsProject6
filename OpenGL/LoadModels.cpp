@@ -8,6 +8,15 @@ void LoadModelTypes(cVAOMeshManager* pTheVAOMeshManager, GLuint shaderProgramID)
 	sphereInfo.meshFileName = "Sphere_n_uv.ply";
 	pTheVAOMeshManager->LoadModelIntoVAO(sphereInfo, shaderProgramID);
 
+	sModelDrawInfo sphere2Info;
+	sphere2Info.meshFileName = "Sphere_1x1.ply";
+	pTheVAOMeshManager->LoadModelIntoVAO(sphere2Info, shaderProgramID);
+
+	sModelDrawInfo sphere3Info;
+	sphere3Info.meshFileName = "Sphere_2x2.ply";
+	pTheVAOMeshManager->LoadModelIntoVAO(sphere3Info, shaderProgramID);
+
+
 	sModelDrawInfo sphereInvertedNormalsInfo;
 	sphereInvertedNormalsInfo.meshFileName = "Sphere_n_uv_INVERTED_NORMALS.ply";
 	pTheVAOMeshManager->LoadModelIntoVAO(sphereInvertedNormalsInfo, shaderProgramID);
@@ -57,17 +66,6 @@ void LoadModelTypes(cVAOMeshManager* pTheVAOMeshManager, GLuint shaderProgramID)
 	sModelDrawInfo cube11Info;
 	cube11Info.meshFileName = "Cube_3x5.ply";
 	pTheVAOMeshManager->LoadModelIntoVAO(cube11Info, shaderProgramID);
-	}
-
-	// hemispheres
-	{
-	sModelDrawInfo hemiSphere1Info;
-	hemiSphere1Info.meshFileName = "HemiSphere_1x1.ply";
-	pTheVAOMeshManager->LoadModelIntoVAO(hemiSphere1Info, shaderProgramID);
-
-	sModelDrawInfo hemiSphere2Info;
-	hemiSphere2Info.meshFileName = "HemiSphere_1x2.ply";
-	pTheVAOMeshManager->LoadModelIntoVAO(hemiSphere2Info, shaderProgramID);
 	}
 
 	// triangles
@@ -138,9 +136,9 @@ void LoadModelTypes(cVAOMeshManager* pTheVAOMeshManager, GLuint shaderProgramID)
 
 	// other
 	{
-		sModelDrawInfo tetraInfo;
-		tetraInfo.meshFileName = "tetra.ply";
-		pTheVAOMeshManager->LoadModelIntoVAO(tetraInfo, shaderProgramID);
+		sModelDrawInfo coneInfo;
+		coneInfo.meshFileName = "Cone.ply";
+		pTheVAOMeshManager->LoadModelIntoVAO(coneInfo, shaderProgramID);
 
 		sModelDrawInfo spinInfo;
 		spinInfo.meshFileName = "spin.ply";

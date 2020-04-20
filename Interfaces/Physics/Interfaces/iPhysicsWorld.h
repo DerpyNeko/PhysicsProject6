@@ -5,6 +5,7 @@
 
 #include <glmMath.h>
 #include "iRigidBody.h"
+#include "iConstraint.h"
 
 namespace nPhysics
 {
@@ -26,6 +27,12 @@ namespace nPhysics
 
 		// Removes a rigid body, will no longer be affect by physics
 		virtual bool RemoveBody(iRigidBody* body) = 0;
+
+		// Adds a constraint to be affected by physics
+		virtual bool AddConstraint(iConstraint* constraint) = 0;
+
+		// Removes a constraint, will no longer be affect by physics
+		virtual bool RemoveConstraint(iConstraint* constraint) = 0;
 
 	protected:
 		iPhysicsWorld() {}

@@ -43,13 +43,28 @@ namespace nPhysics
 		return new cBulletCapsule(radius, height);
 	}
 
-	iTetrahedronShape* cBulletPhysicsFactory::CreateTetrahedronShape()
+	iConeShape* cBulletPhysicsFactory::CreateConeShape(float radius, float height)
 	{
-		return new cBulletTetrahedron();
+		return new cBulletCone(radius, height);
 	}
 
 	iCylinderShape* cBulletPhysicsFactory::CreateCylinderShape(const glm::vec3& boxHalfExtents)
 	{
 		return new cBulletCylinder(boxHalfExtents);
+	}
+
+	i6DoFConstraint* cBulletPhysicsFactory::Create6DoFConstraint(const s6DoFDef& dofDef)
+	{
+		return new cBullet6DoFConstraint(dofDef);
+	}
+
+	iHingeConstraint* cBulletPhysicsFactory::CreateHingeConstraint(const sHingeDef& hingeDef)
+	{
+		return new cBulletHingeConstraint(hingeDef);
+	}
+
+	iSliderConstraint* cBulletPhysicsFactory::CreateSliderConstraint(const sSliderDef& sliderDef)
+	{
+		return new cBulletSliderConstraint(sliderDef);
 	}
 }

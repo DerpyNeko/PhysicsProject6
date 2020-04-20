@@ -1,5 +1,7 @@
 #include "cBullet6DoFConstraint.h"
 #include "nConvert.h"
+#include "cBulletRigidBody.h"
+#include <iostream>
 
 namespace nPhysics
 {
@@ -19,10 +21,11 @@ namespace nPhysics
 		btRigidBody::btRigidBodyConstructionInfo rbInfo(mass, motionState, dofShape, localInertia);
 		mBody = new btRigidBody(rbInfo);
 		mBody->setUserPointer(this);
+		mBody->setRestitution(0.95f);
 
 		mConstraint = new btGeneric6DofConstraint(*mBody, transform, false);
-		mConstraint->setLinearLowerLimit(nConvert::ToBullet(def.LowerLimit));
 		mConstraint->setLinearUpperLimit(nConvert::ToBullet(def.UpperLimit));
+		mConstraint->setLinearLowerLimit(nConvert::ToBullet(def.LowerLimit));
 	}
 
 	cBullet6DoFConstraint::~cBullet6DoFConstraint()
@@ -33,6 +36,14 @@ namespace nPhysics
 		delete mBody->getMotionState();
 		delete mBody;
 		mBody = 0;
+	}
+
+	iRigidBody* cBullet6DoFConstraint::GetRigidBody()
+	{
+		cBulletRigidBody* b = new cBulletRigidBody();
+		b->SetBulletBody(mBody);
+		iRigidBody* rb = b;
+		return rb;
 	}
 
 	void cBullet6DoFConstraint::GetTransform(glm::mat4& transformOut)
@@ -63,4 +74,16 @@ namespace nPhysics
 		world->addRigidBody(mBody);
 		world->addConstraint(mConstraint);
 	}
+
+	//void cBullet6DoFConstraint::AddSelfToWorld(btSimpleDynamicsWorld* world)
+	//{
+	//	world->addRigidBody(mBody);
+	//	world->addConstraint(mConstraint);
+	//}
+
+	//void cBullet6DoFConstraint::RemoveSelfFromWorld(btSimpleDynamicsWorld* world)
+	//{
+	//	world->addRigidBody(mBody);
+	//	world->addConstraint(mConstraint);
+	//}
 }

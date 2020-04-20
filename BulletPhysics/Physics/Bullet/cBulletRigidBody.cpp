@@ -66,4 +66,51 @@ namespace nPhysics
 	{
 		return nConvert::ToSimple(mBody->getWorldTransform().getOrigin());
 	}
+
+	//cBulletRigidBody* cCollision::GetKinematicBody() 
+	//{
+	//	if (mBodyA->GetMass() != 0.0f)
+	//		return mBodyA;
+	//	else if (mBodyB->GetMass() != 0.0f)
+	//		return mBodyB;
+	//	else
+	//		return NULL;
+	//};
+
+	//cBulletRigidBody* cCollision::GetStaticBody()
+	//{
+	//	if (mBodyA->GetMass() != 0.0f)
+	//		return mBodyA;
+	//	else if (mBodyB->GetMass() != 0.0f)
+	//		return mBodyB;
+	//	else
+	//		return NULL;
+	//};
+
+	//btVector3 cCollision::GetNewPosition() {
+	//	btVector3 playerPos;
+	//	btVector3 contactPoint;
+	//	glm::vec3 orientation;
+	//	glm::vec3 oldPosition;
+
+	//	if (mBodyA->GetMass() != 0.0f) {
+	//		playerPos = nConvert::ToBullet(mBodyA->GetPosition());
+	//		oldPosition = mBodyA->GetPreviousPosition();
+	//		contactPoint = this->mContactPtB;
+	//	}
+	//	else if (mBodyB->GetMass() != 0.0f) {
+	//		playerPos = nConvert::ToBullet(B->getPosition());
+	//		oldPosition = mBodyB->GetPreviousPosition();
+	//		contactPoint = this->mContactPtA;
+	//	}
+	//	contactPoint.setY(0.0f);
+
+	//	float distance = glm::distance(ToGlm(playerPos), oldPosition);
+	//	glm::vec3 dispDir = ToGlm(playerPos) - oldPosition;
+	//	dispDir = glm::normalize(dispDir);
+	//	btVector3 disp = (distance * 0.95) * ToBullet(dispDir);
+	//	playerPos = ToBullet(oldPosition) + disp;
+
+	//	return playerPos;
+	//};
 }

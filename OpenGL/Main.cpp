@@ -184,28 +184,9 @@ int main(void)
 
 	physicsWorld = gPhysicsFactory->CreatePhysicsWorld();
 
-	physicsWorld->SetGravity(glm::vec3(0.0f, 0.0f, -9.81f));
+	//physicsWorld->SetGravity(glm::vec3(0.0f, 0.0f, -9.81f));
 
 	nLoad::LoadConfig("assets/json/objects.json");
-
-	std::vector<cMeshObject*> vec_pTransparentObject;
-	std::vector<cMeshObject*> vec_pSolidObject;
-
-	for (cMeshObject* m : g_MeshObjects)
-	{
-		if (m->friendlyName.compare("Roof") == 0)
-		{
-			m->bIsVisible == false;
-		}
-		if (m->materialDiffuse.a < 1.0f)
-		{
-			vec_pTransparentObject.push_back(m);
-		}
-		else
-		{
-			vec_pSolidObject.push_back(m);
-		}
-	}
 
 	CreateLights(program);
 
@@ -309,32 +290,25 @@ int main(void)
 			glUniform1f(useSkyBoxTexture_UniLoc, (float)GL_FALSE);
 		}
 
-		// Draw all the solid objects in the "scene"
-		for (unsigned int objIndex = 0; objIndex != (unsigned int)vec_pSolidObject.size(); objIndex++)
+		// Draw all the objects in the "scene"
+		for (unsigned int objIndex = 0; objIndex != (unsigned int)g_MeshObjects.size(); objIndex++)
 		{
-			cMeshObject* pCurrentMesh = vec_pSolidObject[objIndex];
+			cMeshObject* pCurrentMesh = g_MeshObjects[objIndex];
 
 			glm::mat4x4 matModel = glm::mat4(1.0f);
 
 			DrawObject(pCurrentMesh, matModel, program);
 		}
 
-		// Draw all the transparent objects in the "scene"
-		for (unsigned int objIndex = 0; objIndex != (unsigned int)vec_pTransparentObject.size(); objIndex++)
-		{
-			cMeshObject* pCurrentMesh = vec_pTransparentObject[objIndex];
-
-			glm::mat4x4 matModel = glm::mat4(1.0f);
-
-			DrawObject(pCurrentMesh, matModel, program);
-		}
-
-		glm::vec3 position = g_MeshObjects.at(2)->rigidBody->GetPosition() - g_pCamera->eye;
-		g_pCamera->setCameraAt(glm::normalize(position));
+		//glm::vec3 position = g_MeshObjects.at(2)->rigidBody->GetPosition() - g_pCamera->eye;
+		//g_pCamera->setCameraAt(glm::normalize(position));
+		//
+		//std::cout << "Pos: " << g_MeshObjects.at(2)->rigidBody->GetPosition().x << ", " << g_MeshObjects.at(2)->rigidBody->GetPosition().y << ", " << g_MeshObjects.at(2)->rigidBody->GetPosition().z << std::endl;
 
 		// High res timer (likely in ms or ns)
 		double currentTime = glfwGetTime();
 		double deltaTime = currentTime - lastTime;
+		lastTime = currentTime;
 
 		physicsWorld->Update(deltaTime);
 
@@ -347,8 +321,6 @@ int main(void)
 		ProcessAsyncKeys(window);
 
 		ProcessAsyncMouse(window);
-
-		lastTime = currentTime;
 
 	}//while (!glfwWindowShouldClose(window))
 

@@ -44,13 +44,13 @@ namespace nPhysics
 		// SetGravity
 		// Set the gravity acceleration vector.
 		// This will be applied to all rigid bodies during timesteps.
-		virtual void SetGravity(const glm::vec3& gravity);
+		virtual void SetGravity(const glm::vec3& gravity) override;
 
 		// Update
 		// A single trigger to perform a single timestep.
 		// All rigid bodies will go through integration, collision
 		// detection and reaction, and have their internal values updated.
-		virtual void Update(float dt);
+		virtual void Update(float dt) override;
 
 		// AddRigidBody
 		// Add a rigid body to the world. 
@@ -62,7 +62,7 @@ namespace nPhysics
 		//    There was no addition to the world.
 		//    A null pointer is passed in.
 		//    This particular rigid body is already in the world, hense not added again.
-		virtual bool AddBody(iRigidBody* rigidBody);
+		virtual bool AddBody(iRigidBody* rigidBody) override;
 
 		// RemoveRigidBody
 		// Remove a rigid body from the world.
@@ -73,7 +73,7 @@ namespace nPhysics
 		//    There was no removal from the world.
 		//    A null pointer was passed in.
 		//    This particular rigid body was not in the world, hense not removed.
-		virtual bool RemoveBody(iRigidBody* rigidBody);
+		virtual bool RemoveBody(iRigidBody* rigidBody) override;
 
 		// AddConstraint
 		// Add a constraint to the world. 
@@ -85,7 +85,7 @@ namespace nPhysics
 		//    There was no addition to the world.
 		//    A null pointer is passed in.
 		//    This particular constraint is already in the world, hense not added again.
-		virtual bool AddConstraint(iConstraint* constraint);
+		virtual bool AddConstraint(iConstraint* constraint) override;
 
 		// RemoveConstraint
 		// Remove a constraint from the world.
@@ -96,7 +96,7 @@ namespace nPhysics
 		//    There was no removal from the world.
 		//    A null pointer was passed in.
 		//    This particular constraint was not in the world, hense not removed.
-		virtual bool RemoveConstraint(iConstraint* constraint);
+		virtual bool RemoveConstraint(iConstraint* constraint) override;
 	protected:
 
 		// IntegrateRigidBody
@@ -139,8 +139,11 @@ namespace nPhysics
 
 		// Bullet discrete dynamic world
 		btDiscreteDynamicsWorld* mDynamicsWorld;
+		//btSimpleDynamicsWorld* mDynamicsWorld;
 
-		btAlignedObjectArray<btCollisionShape*> collisionShapes;
+		btAlignedObjectArray<btCollisionShape*> mCollisionShapes;
+
+		//void TickCallBack(btDynamicsWorld* dynamicWorld, btScalar timeStep);
 
 		// Constructors not to be used.
 		cBulletPhysicsWorld(const cBulletPhysicsWorld& other) = delete;

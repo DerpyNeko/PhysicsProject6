@@ -384,7 +384,7 @@
     <ClInclude Include="Physics\Bullet\cBulletRigidBody.h" />
     <ClInclude Include="Physics\Bullet\BulletShapes.h" />
     <ClInclude Include="Physics\Bullet\nConvert.h" />
-    <ClInclude Include="Physics\Interfaces\iBulletComponent.h" />
+    <ClInclude Include="Physics\Bullet\iBulletComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Physics\Bullet\Bullet\BulletCollision\BroadphaseCollision\btAxisSweep3.cpp" />

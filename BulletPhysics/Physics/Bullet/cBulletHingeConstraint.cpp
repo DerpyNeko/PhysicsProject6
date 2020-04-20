@@ -1,11 +1,12 @@
 #include "cBulletHingeConstraint.h"
 #include "nConvert.h"
+#include "cBulletRigidBody.h"
 
 namespace nPhysics
 {
 	cBulletHingeConstraint::cBulletHingeConstraint(const sHingeDef& def) : iConstraint(eConstraintType::HINGE_CONSTRAINT)
 	{
-		btBoxShape* hingeShape = new btBoxShape(btVector3(def.Width * 0.5f, def.Height * 0.5f, def.Thickness * 0.5f));
+		btBoxShape* hingeShape = new btBoxShape(btVector3(def.Length * 0.5f, def.Height * 0.5f, def.Width * 0.5f));
 
 		btTransform transform;
 		transform.setIdentity();
@@ -31,6 +32,14 @@ namespace nPhysics
 		delete mBody->getMotionState();
 		delete mBody;
 		mBody = 0;
+	}
+
+	iRigidBody* cBulletHingeConstraint::GetRigidBody()
+	{
+		cBulletRigidBody* b = new cBulletRigidBody();
+		b->SetBulletBody(mBody);
+		iRigidBody* rb = b;
+		return rb;
 	}
 
 	void cBulletHingeConstraint::GetTransform(glm::mat4& transformOut)
@@ -61,4 +70,16 @@ namespace nPhysics
 		world->addRigidBody(mBody);
 		world->addConstraint(mConstraint);
 	}
+
+	//void cBulletHingeConstraint::AddSelfToWorld(btSimpleDynamicsWorld* world)
+	//{
+	//	world->addRigidBody(mBody);
+	//	world->addConstraint(mConstraint);
+	//}
+
+	//void cBulletHingeConstraint::RemoveSelfFromWorld(btSimpleDynamicsWorld* world)
+	//{
+	//	world->addRigidBody(mBody);
+	//	world->addConstraint(mConstraint);
+	//}
 }

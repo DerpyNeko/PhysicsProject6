@@ -1,7 +1,9 @@
-#include <BulletDynamics\Featherstone\btMultiBodyDynamicsWorld.h>
-
 #ifndef _iBulletComponent_HG_
 #define _iBulletComponent_HG_
+
+#include <BulletDynamics\Featherstone\btMultiBodyDynamicsWorld.h>
+#include <btBulletCollisionCommon.h>
+#include <btBulletDynamicsCommon.h>
 
 // Used to add/remove constraints
 

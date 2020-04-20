@@ -11,10 +11,12 @@ namespace nPhysics
 	// Definition of what information the hinge will have
 	struct sHingeDef
 	{
+		sHingeDef() : Position(0.0f, 0.0f, 0.0f), Length(0.0f), Height(0.0f), Width(0.0f), Mass(0.0f), Pivot(0.0f, 0.0f, 0.0f), Axis(0.0f, 0.0f, 0.0f) {}
+
 		glm::vec3 Position;
-		float Width;
+		float Length;
 		float Height;
-		float Thickness;
+		float Width;
 		float Mass;
 		glm::vec3 Pivot;
 		glm::vec3 Axis;
@@ -36,11 +38,13 @@ namespace nPhysics
 	// Definition of what information the 6DoF will have
 	struct s6DoFDef
 	{
+		s6DoFDef() : Position(0.0f, 0.0f, 0.0f), Mass(0.0f), Radius(0.0f), UpperLimit(0.0f, 0.0f, 0.0f), LowerLimit(0.0f, 0.0f, 0.0f) {}
+
 		glm::vec3 Position;
+		float Mass;
+		float Radius;
 		glm::vec3 UpperLimit;
 		glm::vec3 LowerLimit;
-		float Radius;
-		float Mass;
 	};
 
 	// 6DoF constraint that is affect by force and has a transform
@@ -59,13 +63,15 @@ namespace nPhysics
 	// Definition of what information the Slider will have
 	struct sSliderDef
 	{
+		sSliderDef() : Position(0.0f, 0.0f, 0.0f), Length(0.0f), Height(0.0f), Width(0.0f), Mass(0.0f), UpperLimit(0.0f), LowerLimit(0.0f) {}
+
 		glm::vec3 Position;
-		float Width;
+		float Length;
 		float Height;
-		float Thickness;
+		float Width;
 		float Mass;
-		glm::vec3 UpperLimit;
-		glm::vec3 LowerLimit;
+		float UpperLimit;
+		float LowerLimit;
 	};
 
 	// Slider constraint that is affect by force and has a transform
@@ -75,7 +81,7 @@ namespace nPhysics
 		// Destructor
 		virtual ~iSliderConstraint() {}
 	protected:
-		iSliderConstraint() : iConstraint(eConstraintType::SIXDOF_CONSTRAINT) {}
+		iSliderConstraint() : iConstraint(eConstraintType::SLIDER_CONSTRAINT) {}
 	private:
 		iSliderConstraint(const iSliderConstraint& other) = delete;
 		iSliderConstraint& operator=(const iSliderConstraint& other) = delete;

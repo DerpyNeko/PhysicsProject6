@@ -85,20 +85,23 @@ namespace nPhysics
 		iCapsuleShape& operator=(const iCapsuleShape& other) = delete;
 	};
 
-	// Tetrahedron interface
-	class iTetrahedronShape : public virtual iShape
+	// Cone interface
+	class iConeShape : public virtual iShape
 	{
 	public:
 		// Destructor
-		virtual ~iTetrahedronShape() { }
+		virtual ~iConeShape() { }
+
+		virtual float GetRadius() = 0;
+		virtual float GetHeight() = 0;
 
 	protected:
-		iTetrahedronShape() : iShape(eShapeType::SHAPE_TYPE_TETRAHEDRON) {}
+		iConeShape() : iShape(eShapeType::SHAPE_TYPE_CONE) {}
 
 	private:
 		// Constructors not used
-		iTetrahedronShape(const iTetrahedronShape& other) = delete;
-		iTetrahedronShape& operator=(const iTetrahedronShape& other) = delete;
+		iConeShape(const iConeShape& other) = delete;
+		iConeShape& operator=(const iConeShape& other) = delete;
 	};
 
 	// Cylinder interface

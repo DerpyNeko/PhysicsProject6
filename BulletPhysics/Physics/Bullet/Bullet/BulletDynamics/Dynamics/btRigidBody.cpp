@@ -129,7 +129,7 @@ void btRigidBody::setGravity(const btVector3& acceleration)
 {
 	if (m_inverseMass != btScalar(0.0))
 	{
-		m_gravity = acceleration * (btScalar(1.0) / m_inverseMass);
+		m_gravity = acceleration *(btScalar(1.0) / m_inverseMass);
 	}
 	m_gravity_acceleration = acceleration;
 }

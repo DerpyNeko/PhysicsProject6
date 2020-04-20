@@ -3,9 +3,7 @@
 
 // Physics Factory that creates all of physics related objects
 
-#include "Shapes.h"
-#include "iRigidBody.h"
-#include "iPhysicsWorld.h"
+#include "Interfaces.h"
 
 namespace nPhysics
 {
@@ -27,6 +25,27 @@ namespace nPhysics
 
 		// Creates a plane object to be added to a rigid body
 		virtual iPlaneShape* CreatePlaneShape(const glm::vec3& planeNormal, float planeConstant) = 0;
+
+		// Creates a box shape based on box half extends
+		virtual iBoxShape* CreateBoxShape(const glm::vec3& boxHalfExtents) = 0;
+
+		// Creates a plane shape based on the radius and height
+		virtual iCapsuleShape* CreateCapsuleShape(float radius, float height) = 0;
+
+		// Creates a cone
+		virtual iConeShape* CreateConeShape(float radius, float height) = 0;
+
+		// Creates a cylinder shape based on box half extends
+		virtual iCylinderShape* CreateCylinderShape(const glm::vec3& boxHalfExtents) = 0;
+
+		// Creates a 6DoF constraint based on definition
+		virtual i6DoFConstraint* Create6DoFConstraint(const s6DoFDef& dofDef) = 0;
+
+		// Creates a hinge constraint based on definition
+		virtual iHingeConstraint* CreateHingeConstraint(const sHingeDef& hingeDef) = 0;
+
+		// Creates a slider constraint based on definition
+		virtual iSliderConstraint* CreateSliderConstraint(const sSliderDef& sliderDef) = 0;
 	protected:
 		iPhysicsFactory() {}
 	private:

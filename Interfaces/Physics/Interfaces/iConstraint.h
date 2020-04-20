@@ -3,12 +3,16 @@
 
 #include <glmMath.h>
 #include "eConstraintType.h"
+#include "iRigidBody.h"
 
 namespace nPhysics
 {
 	class iConstraint
 	{
 	public:
+		// Returns the rigid body that it creates
+		virtual iRigidBody* GetRigidBody() = 0;
+
 		virtual void GetTransform(glm::mat4& transformOut) = 0;
 
 		virtual int GetUniqueEntityId() = 0;

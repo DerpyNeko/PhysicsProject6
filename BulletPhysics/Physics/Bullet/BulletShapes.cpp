@@ -87,18 +87,27 @@ namespace nPhysics
 		return dynamic_cast<btCapsuleShape*>(mBulletShape)->getHalfHeight();
 	}
 
-	// Tetrahedron
-	cBulletTetrahedron::cBulletTetrahedron() : iTetrahedronShape(), iShape(eShapeType::SHAPE_TYPE_TETRAHEDRON)
+	// Cone
+	cBulletCone::cBulletCone(float radius, float height) : iConeShape(), iShape(eShapeType::SHAPE_TYPE_CONE)
 	{
-		mBulletShape = new btBU_Simplex1to4();
+		mBulletShape = new btConeShape(radius, height);
 	}
 
-	cBulletTetrahedron::~cBulletTetrahedron()
+	cBulletCone::~cBulletCone()
 	{
 		delete mBulletShape;
 		mBulletShape = 0;
 	}
 
+	float cBulletCone::GetRadius()
+	{
+		return dynamic_cast<btConeShape*>(mBulletShape)->getRadius();
+	}
+
+	float cBulletCone::GetHeight()
+	{
+		return dynamic_cast<btConeShape*>(mBulletShape)->getHeight();
+	}
 
 	// Cylinder
 	cBulletCylinder::cBulletCylinder(const glm::vec3& boxHalfExtents) : iCylinderShape(), iShape(eShapeType::SHAPE_TYPE_CYLINDER)
@@ -116,9 +125,4 @@ namespace nPhysics
 	{
 		return dynamic_cast<btCylinderShape*>(mBulletShape)->getRadius();
 	}
-
-
-
-
-
 }

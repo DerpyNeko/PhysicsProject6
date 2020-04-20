@@ -729,13 +729,13 @@
     <ClInclude Include="Physics\Bullet\cBulletHingeConstraint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Physics\Interfaces\iBulletComponent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Physics\Bullet\cBullet6DoFConstraint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Physics\Bullet\cBulletSliderConstraint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics\Bullet\iBulletComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
